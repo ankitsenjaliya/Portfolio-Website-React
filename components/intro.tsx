@@ -80,10 +80,10 @@ export default function Intro() {
         <a
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer 
           borderBlack dark:bg-white/10"
-          href="/CV.pdf"
+          href="/Ankitkumar_Senjaliya_Resume.pdf"
           download
         >
-          Download CV{" "}
+          Download Resume{" "}
           <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
         </a>
 
