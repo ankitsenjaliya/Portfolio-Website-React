@@ -1,10 +1,13 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
+import cibcLogo from './cibc.png';
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/rmtdev.png";
 import wordanalyticsImg from "@/public/wordanalytics.png";
+import { Img } from "@react-email/components";
+import { useTheme } from "@/context/theme-context";
 
 export const links = [
   {
@@ -33,52 +36,198 @@ export const links = [
   },
 ] as const;
 
-export const experiencesData = [
-  {
-    title: "Consultant Application Developer",
-    location: "CIBC - Toronto, CA",
-    description:"In my current role, I'm taking diverse responsibilities, showcasing proficiency in developing features for a full-stack web application. This included intricate tasks such as creating web components, implementing intelligent workflows, and ensuring seamless upgradability using React, TypeScript, Java, Spring Boot",
-    icon: React.createElement(CgWorkAlt),
-    date: "2019 - Present",
-  },
-  {
-    title: "Software Developer",
-    location: "Blackberry Ltd - Waterloo, CA",
-    description:"I specialized in full-stack web development, utilizing React, Redux, TypeScript, Java, REST Services, Spring Boot, API/Microservices, Maven, Jenkins, Web Services, JIRA. I have a strong background in designing and developing OAuth2.0 Single Sign-On systems using Spring Security. Additionally, I excel in REST Web Services design, API integration, and deployment through a CICD pipeline using Jenkins",
-    icon: React.createElement(CgWorkAlt),
-    date: "2018 - 2019",
-  },
-  {
-    title: "Master of Applied Computing",
-    location: "University of Windsor, CA",
-    description:'Relevant Courses: \n - Advanced Algorithms and Data Structures \n - Machine Learning and Artificial Intelligence \n - Distributed Systems \n - Distributed Systems',
-    projects : '\n - Search Engine',
-    icon: React.createElement(CgWorkAlt),
-    date: "2017 - 2019",
-  },
-  {
-    title: "Application Developer",
-    location: "Sanvi Technologies - Surat, IN",
-    description:" My experience encompasses the end-to-end development of dynamic web applications, incorporating robust front-end interfaces with React and Redux, while ensuring seamless back-end operations with NodeJS and MySQL databases. Additionally, I leverage Styled Components to create visually appealing and responsive UIs. My expertise lies in delivering efficient, user-centric solutions through an array of cutting-edge technologies.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2016 - 2017",
-  },
-  {
-    title: "Unity Application Developer",
-    location: "Arthisoft Inc. - Ahmedabad, IN",
-    description:"I've honed my technical proficiency in JavaScript programming through the development of 2D and 3D games. This involved implementing concepts like Enemy AI, Gameplay Mechanics, and User Display Controller, along with extensive testing and debugging. Additionally, I worked on experimental prototypes, including 2D animation sprites and procedural mesh generation. I also leveraged shaders for 2D games to address issues related to memory management, device display FPS performance, and graphics/UI animation.",
-    icon: React.createElement(CgWorkAlt),
-    date: "2015 - 2016",
-  },
-  {
-    title: "Bachelor of Computer Science",
-    location: "Gujarat Technological University, IN",
-    description:'Relevant Courses: \n - Object-Oriented Programming \n - Database Systems \n - Web Development \n - Operating Systems',
-    projects : '\n - AR/VR based 3D Application',
-    icon: React.createElement(CgWorkAlt),
-    date: "2011 - 2014",
-  },
-];
+export const generateExperienceData = (theme:string) => {
+  const experiencesData = [
+    {
+      title: "Consultant, Application Developer",
+      location: "CIBC - Toronto, CA",
+      description:"In my current role, I'm taking diverse responsibilities, showcasing proficiency in developing features for a full-stack web application. This included intricate tasks such as creating web components, implementing intelligent workflows, and ensuring seamless upgradability using React, TypeScript, Java, Spring Boot",
+      icon: React.createElement(CgWorkAlt),
+      date: "2019 - Present",
+      logo: {
+        id: 1,
+        src: '/cibc.svg',
+        alt: 'CIBC Logo',
+        height: 70,
+        width: 70,
+        className: 'mr-8',
+      }
+    },
+    {
+      title: "Software Developer",
+      location: "Blackberry Ltd - Waterloo, CA",
+      description:"I specialized in full-stack web development, utilizing React, Redux, TypeScript, Java, REST Services, Spring Boot, API/Microservices, Maven, Jenkins, Web Services, JIRA. I have a strong background in designing and developing OAuth2.0 Single Sign-On systems using Spring Security. Additionally, I excel in REST Web Services design, API integration, and deployment through a CICD pipeline using Jenkins",
+      icon: React.createElement(CgWorkAlt),
+      date: "2018 - 2019",
+      logo: {
+        id: 1,
+        src: theme === "light" ? '/bb-dark.png' : '/bb-light.png',
+        alt: 'Blackberry Logo',
+        height: 45,
+        width: 45,
+        className: 'mr-8',
+      }
+    },
+    {
+      title: "Master of Applied Computing",
+      location: "University of Windsor, CA",
+      description:'Relevant Courses: \n - Advanced Algorithms and Data Structures \n - Machine Learning and Artificial Intelligence \n - Distributed Systems \n - Distributed Systems',
+      projects : '\n - Search Engine',
+      icon: React.createElement(CgWorkAlt),
+      date: "2017 - 2019",
+      logo: {
+        id: 1,
+        src: '/uwindsor.svg',
+        alt: 'Uwindsor Logo',
+        height: 40,
+        width: 40,
+        className: 'mr-6',
+      }
+    },
+    {
+      title: "Application Developer",
+      location: "Sanvi Technologies - Surat, IN",
+      description:" My experience encompasses the end-to-end development of dynamic web applications, incorporating robust front-end interfaces with React and Redux, while ensuring seamless back-end operations with NodeJS and MySQL databases. Additionally, I leverage Styled Components to create visually appealing and responsive UIs. My expertise lies in delivering efficient, user-centric solutions through an array of cutting-edge technologies.",
+      icon: React.createElement(CgWorkAlt),
+      date: "2016 - 2017",
+      logo: {
+        id: 1,
+        src: '/sanvitech.png',
+        alt: 'Sanvi Technologies Logo',
+        height: 40,
+        width: 45,
+        className: 'mr-7',
+      }
+    },
+    {
+      title: "Unity Application Developer",
+      location: "Arthisoft Inc. - Ahmedabad, IN",
+      description:"I've honed my technical proficiency in JavaScript programming through the development of 2D and 3D games. This involved implementing concepts like Enemy AI, Gameplay Mechanics, and User Display Controller, along with extensive testing and debugging. Additionally, I worked on experimental prototypes, including 2D animation sprites and procedural mesh generation. I also leveraged shaders for 2D games to address issues related to memory management, device display FPS performance, and graphics/UI animation.",
+      icon: React.createElement(CgWorkAlt),
+      date: "2015 - 2016",
+      logo: {
+        id: 1,
+        src: '/arthisoft.png',
+        alt: 'Arthisoft Logo',
+        height: 40,
+        width: 40,
+        className: 'mr-7',
+      }
+    },
+    {
+      title: "Bachelor of Computer Science",
+      location: "Gujarat Technological University, IN",
+      description:'Relevant Courses: \n - Object-Oriented Programming \n - Data Structures & Algorithms \n - Database Systems \n - Web Development \n - Operating Systems',
+      projects : '\n - AR/VR based 3D Application',
+      icon: React.createElement(CgWorkAlt),
+      date: "2011 - 2014",
+      logo: {
+        id: 1,
+        src: '/gtu.png',
+        alt: 'GTU Logo',
+        height: 80,
+        width: 80,
+        className: 'mr-7',
+      }
+    },
+  ];
+
+  return experiencesData;
+};
+// export const experiencesData = [
+//   {
+//     title: "Consultant, Application Developer",
+//     location: "CIBC - Toronto, CA",
+//     description:"In my current role, I'm taking diverse responsibilities, showcasing proficiency in developing features for a full-stack web application. This included intricate tasks such as creating web components, implementing intelligent workflows, and ensuring seamless upgradability using React, TypeScript, Java, Spring Boot",
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2019 - Present",
+//     logo: {
+//       id: 1,
+//       src: '/cibc.svg',
+//       alt: 'CIBC Logo',
+//       height: 60,
+//       width: 60,
+//       className: 'mr-8',
+//     }
+//   },
+//   {
+//     title: "Software Developer",
+//     location: "Blackberry Ltd - Waterloo, CA",
+//     description:"I specialized in full-stack web development, utilizing React, Redux, TypeScript, Java, REST Services, Spring Boot, API/Microservices, Maven, Jenkins, Web Services, JIRA. I have a strong background in designing and developing OAuth2.0 Single Sign-On systems using Spring Security. Additionally, I excel in REST Web Services design, API integration, and deployment through a CICD pipeline using Jenkins",
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2018 - 2019",
+//     logo: {
+//       id: 1,
+//       src: theme === "light" ? '/blackberry.svg' : '/cibc.svg',
+//       alt: 'Blackberry Logo',
+//       height: 100,
+//       width: 110,
+//       className: 'mr-7',
+//     }
+//   },
+//   {
+//     title: "Master of Applied Computing",
+//     location: "University of Windsor, CA",
+//     description:'Relevant Courses: \n - Advanced Algorithms and Data Structures \n - Machine Learning and Artificial Intelligence \n - Distributed Systems \n - Distributed Systems',
+//     projects : '\n - Search Engine',
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2017 - 2019",
+//     logo: {
+//       id: 1,
+//       src: '/uwindsor.svg',
+//       alt: 'Uwindsor Logo',
+//       height: 40,
+//       width: 40,
+//       className: 'mr-6',
+//     }
+//   },
+//   {
+//     title: "Application Developer",
+//     location: "Sanvi Technologies - Surat, IN",
+//     description:" My experience encompasses the end-to-end development of dynamic web applications, incorporating robust front-end interfaces with React and Redux, while ensuring seamless back-end operations with NodeJS and MySQL databases. Additionally, I leverage Styled Components to create visually appealing and responsive UIs. My expertise lies in delivering efficient, user-centric solutions through an array of cutting-edge technologies.",
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2016 - 2017",
+//     logo: {
+//       id: 1,
+//       src: '/sanvitech.png',
+//       alt: 'Sanvi Technologies Logo',
+//       height: 40,
+//       width: 40,
+//       className: 'mr-7',
+//     }
+//   },
+//   {
+//     title: "Unity Application Developer",
+//     location: "Arthisoft Inc. - Ahmedabad, IN",
+//     description:"I've honed my technical proficiency in JavaScript programming through the development of 2D and 3D games. This involved implementing concepts like Enemy AI, Gameplay Mechanics, and User Display Controller, along with extensive testing and debugging. Additionally, I worked on experimental prototypes, including 2D animation sprites and procedural mesh generation. I also leveraged shaders for 2D games to address issues related to memory management, device display FPS performance, and graphics/UI animation.",
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2015 - 2016",
+//     logo: {
+//       id: 1,
+//       src: '/arthisoft.png',
+//       alt: 'Arthisoft Logo',
+//       height: 40,
+//       width: 40,
+//       className: 'mr-7',
+//     }
+//   },
+//   {
+//     title: "Bachelor of Computer Science",
+//     location: "Gujarat Technological University, IN",
+//     description:'Relevant Courses: \n - Object-Oriented Programming \n - Database Systems \n - Web Development \n - Operating Systems',
+//     projects : '\n - AR/VR based 3D Application',
+//     icon: React.createElement(CgWorkAlt),
+//     date: "2011 - 2014",
+//     logo: {
+//       id: 1,
+//       src: '/uwindsor.svg',
+//       alt: 'Uwindsor Logo',
+//       height: 40,
+//       width: 40,
+//       className: 'mr-[5px]',
+//     }
+//   },
+// ];
 
 export const projectsData = [
   {
